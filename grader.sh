@@ -51,7 +51,11 @@ IFS=$'\r\n ' total=$(echo "$response" | grep '<grade id="total"' | sed 's:[[:spa
 
 clear
 echo "Student: $name"
-echo "Folder link: $link"
+if [[ -z $link ]]; then
+  echo "Folder link: indisponible"
+else
+  echo "Folder link: $(echo $link | sed 's:,:\.:')"
+fi
 echo
 
 echo "Exams: "
