@@ -35,7 +35,7 @@ if [[ -z "$class" || -z "$semester" || -z "$registry" ]]; then
 fi
 
 echo "Getting grades..."
-response=$(curl -s -X POST -H "Accept: application/xml" http://rimsa.com.br/services/grading.php\?lecture=$class\&term=$semester\&registry=$registry)
+response=$(curl -s -X POST -H "Accept: application/xml" http://rimsa.com.br/services/grading.php\?lecture=$class\&term=$semester\&registry=$registry | sed "s:\.:,:")
 
 echo
 echo "Parsing..."
@@ -56,16 +56,16 @@ echo
 
 echo "Exams: "
 for ((i = 1; i < ${#exams_arr[@]}; i++)); do
-  LC_NUMERIC="en_US.UTF-8" printf "Exam %d: %f\n" $i ${exams_arr[i]}
+  LC_NUMERIC="pt_BR.UTF-8" printf "Exam %02d: %05.2f\n" $i ${exams_arr[i]}
 done
-echo "Total: ${exams_arr[0]}"
+echo "Total  : ${exams_arr[0]}"
 echo
 
 echo "Tests: "
 for ((i = 1; i < ${#tests_arr[@]}; i++)); do
-  echo "Test $i: ${tests_arr[i]}"
+  LC_NUMERIC="pt_BR.UTF-8" printf "Test %02d: %05.2f\n" $i ${tests_arr[i]}
 done
-echo "Total: ${tests_arr[0]}"
+echo "Total  : ${tests_arr[0]}"
 echo
 
 echo "Extras: $extras"
