@@ -56,19 +56,19 @@ echo
 
 echo "Exams: "
 for ((i = 1; i < ${#exams_arr[@]}; i++)); do
-  LC_NUMERIC="pt_BR.UTF-8" printf "Exam %02d: %05.2f\n" $i ${exams_arr[i]}
+  LC_NUMERIC="pt_BR.UTF-8" printf "%3s%02d: %05.2f\n" E $i ${exams_arr[i]}
 done
-echo "Total  : ${exams_arr[0]}"
+echo "Total: ${exams_arr[0]}"
 echo
 
 echo "Tests: "
 for ((i = 1; i < ${#tests_arr[@]}; i++)); do
-  LC_NUMERIC="pt_BR.UTF-8" printf "Test %02d: %05.2f\n" $i ${tests_arr[i]}
+  LC_NUMERIC="pt_BR.UTF-8" printf "%3s%02d: %05.2f\n" T $i ${tests_arr[i]}
 done
-echo "Total  : ${tests_arr[0]}"
+echo "Total: ${tests_arr[0]}"
 echo
 
-echo "Extras: $extras"
+LC_NUMERIC="pt_BR.UTF-8" printf "Extra: %05.2f\n" $extras
 echo
 
-echo "Total: $total"
+LC_NUMERIC="pt_BR.UTF-8" printf "Total: %05.2f\n" $total
