@@ -1,7 +1,8 @@
 #!/bin/bash
 
 usage() {
-  echo "Usage: $0 -c <class> -t <semester> -r <student-registry>"
+  echo "Usage: $0 -c <class> -t <semester e.g.: 2020_2> -r <student-registry>"
+  echo "Available classes: decom009 (Linguagens de Programação), decom035 (Linguages Formais e Autômatos) and decom042 (Linux)"
 }
 
 # https://stackoverflow.com/a/16496491
@@ -29,7 +30,8 @@ while getopts "hc:t:r:" o; do
 done
 shift $((OPTIND - 1))
 
-if [[ -z "$class" || -z "$semester" || -z "$registry" ]]; then
+available_classes=(decom009 decom035 decom042)
+if [[ $class =~ " " || ! " ${available_classes[*]} " =~ " $class " || -z "$semester" || -z "$registry" ]]; then
   usage 1>&2
   exit 1
 fi
