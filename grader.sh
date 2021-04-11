@@ -54,7 +54,7 @@ IFS=$'\r\n ' total=$(echo "$response" | grep '<grade id="total"' | sed 's:[[:spa
 clear
 echo "Student: $name"
 if [[ -z $link ]]; then
-  echo "Folder link: indisponible"
+  echo "Folder link: unavailable"
 else
   echo "Folder link: $(echo $link | sed 's:,:\.:')"
 fi
