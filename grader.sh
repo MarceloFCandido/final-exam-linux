@@ -52,6 +52,12 @@ IFS=$'\r\n ' extras=$(echo "$response" | grep '<grade id="extras"' | sed 's:[[:s
 IFS=$'\r\n ' total=$(echo "$response" | grep '<grade id="total"' | sed 's:[[:space:]]*<grade .*>\(.*\)</grade>:\1:')
 
 clear
+
+if [[ -z $name ]]; then
+  echo "Student with registry $registry was not found within the class $class"
+  exit 1
+fi
+
 echo "Student: $name"
 if [[ -z $link ]]; then
   echo "Folder link: unavailable"
