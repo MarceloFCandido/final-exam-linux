@@ -1,9 +1,9 @@
 # Consultador de nota no Portal do Andrei
 
-| Aluno                                    | Matrícula    |
-| ---------------------------------------- | ------------ |
-| Gabriel Dutra Dias                       | 201622040198 |
-| Marcelo Lopes de Macedo Ferreira Candido | 201622040473 |
+| Aluno                                    | 
+| ---------------------------------------- |
+| Gabriel Dutra Dias                       |
+| Marcelo Lopes de Macedo Ferreira Candido |
 
 ## Descrição
 
